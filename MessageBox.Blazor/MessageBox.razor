@@ -5,23 +5,28 @@
         <MudContainer Class="d-flex flex-row flex-grow-1 gap-1 justify-start align-center" Style="margin-left: -24px;">
             @if (MessageType == MessageType.Info)
             {
-                <MudIcon Class="bi bi-info-circle" Size="Size.Medium"></MudIcon>
+                <MudIcon Icon="@Icons.Material.Filled.Info" Size="Size.Medium"></MudIcon>
+                <MudText Typo="Typo.h5">Information</MudText>
             }
             else if (MessageType == MessageType.Warning)
             {
-                <MudIcon Class="bi bi-exclamation-triangle" Size="Size.Medium"></MudIcon>
+                <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Medium"></MudIcon>
+                <MudText Typo="Typo.h5">Warning</MudText>
             }
             else if (MessageType == MessageType.Error)
             {
-                <MudIcon Class="bi bi-exclamation-octagon" Size="Size.Medium"></MudIcon>
+                <MudIcon Icon="@Icons.Material.Filled.Error" Size="Size.Medium"></MudIcon>
+                <MudText Typo="Typo.h5">Error</MudText>
             }
             else if (MessageType == MessageType.Ask)
             {
-                <MudIcon Class="bi bi-question-circle" Size="Size.Medium"></MudIcon>
+                <MudIcon Icon="@Icons.Material.Filled.QuestionMark" Size="Size.Medium"></MudIcon>
+                <MudText Typo="Typo.h5"></MudText>
             }
             else if (MessageType == MessageType.Confirm)
             {
-                <MudIcon Class="bi bi-exclamation-circle" Size="Size.Medium"></MudIcon>
+                <MudIcon Icon="@Icons.Material.Filled.QuestionAnswer" Size="Size.Medium"></MudIcon>
+                <MudText Typo="Typo.h5">Confirm</MudText>
             }
         </MudContainer>
     </TitleContent>
@@ -33,24 +38,16 @@
         else
         {
             // Preserve line breaks
-            <MudText>@((MarkupString)Regex.Replace(HttpUtility.HtmlEncode(@Message), "\r?\n|\r", "<br />"))</MudText>
+            <MudText>@((MarkupString)Regex.Replace(HttpUtility.HtmlEncode(@MessageVisuals.Message), "\r?\n|\r", "<br />"))</MudText>
         }
     </DialogContent>
     <DialogActions>
 
-        @if (MessageType == MessageType.Info || MessageType == MessageType.Error || MessageType == MessageType.Warning || MessageType == MessageType.Confirm)
-        {
-            <MudButton Color="Color.Primary" OnClick="SubmitHandler">Ok</MudButton>
+        <MudButton @ref="primaryButton" Color="Color.Primary" OnClick="SubmitHandler">@MessageVisuals.Button1Text</MudButton>
 
-            if (MessageType == MessageType.Confirm)
-            {
-                <MudButton OnClick="CancelHandler">Cancel</MudButton>
-            }
-        }
-        else if (MessageType == MessageType.Ask)
+        @if (!string.IsNullOrEmpty(MessageVisuals.Button2Text))
         {
-            <MudButton Color="Color.Primary" OnClick="SubmitHandler">Yes</MudButton>
-            <MudButton Color="Color.Default" OnClick="CancelHandler">No</MudButton>
+            <MudButton OnClick="CancelHandler">@MessageVisuals.Button2Text</MudButton>
         }
     </DialogActions>
 </MudDialog>
@@ -62,12 +59,20 @@
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     [Parameter] public MessageType MessageType { get; set; }
     [Parameter] public EventCallback<MessageType> MessageTypeChanged { get; set; }
-    [Parameter] public string Message { get; set; }
+    [Parameter] public MessageVisuals MessageVisuals { get; set; }
     [Parameter] public EventCallback<string> MessageChanged { get; set; }
-
+    private MudButton primaryButton { get; set; }
 
     public async Task SubmitHandler() => MudDialog.Close(DialogResult.Ok(true)); // Control returns to the line after DialogService.Show(...)
 
     public void CancelHandler() => MudDialog.Close(DialogResult.Cancel());
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+            await primaryButton.FocusAsync();
+    }
 
 }

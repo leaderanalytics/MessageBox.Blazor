@@ -1,6 +1,4 @@
-﻿
-
-@code {
+﻿@code {
 
     private MessageService _messageService;
     [Inject] MessageService MessageService
@@ -20,14 +18,14 @@
     private IDialogReference dialogRef;
 
 
-    private async Task<bool> OnMessageReceived(string message, MessageType messageType)
+    private async Task<bool> OnMessageReceived(MessageVisuals messageVisuals, MessageType messageType)
     {
         bool result = false;
         DialogParameters parms = new DialogParameters();
-        parms.Add("Message", message);
+        parms.Add("MessageVisuals", messageVisuals);
         parms.Add("MessageType", messageType);
 
-        DialogOptions options = new DialogOptions { DisableBackdropClick = true  };
+        DialogOptions options = new DialogOptions { DisableBackdropClick = true };
 
         if (messageType != MessageType.LoadingComplete)
         {
@@ -35,12 +33,12 @@
             {
                 LoadingCount++;
 
-                if(dialogRef == null)
+                if (dialogRef == null)
                     dialogRef = DialogService.Show<MessageBox>("", parms, options);
             }
             else
             {
-                
+
                 DialogResult dialogResult = await DialogService.Show<MessageBox>("", parms, options).Result;
                 result = !dialogResult.Cancelled;
             }
@@ -60,3 +58,4 @@
 
     public void Dispose() => MessageService.Notify -= OnMessageReceived;
 }
+

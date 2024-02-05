@@ -4,8 +4,24 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <IncludeSymbols>true</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <Authors>Leader Analytics</Authors>
+	  <Company>Leader Analytics</Company>
+	  <Product>LeaderAnalytics.MessageBox.Blazor</Product>
+	  <Description>Simple, easy dialog box for Blazor applications</Description>
+	  <Copyright>2024 Leader Analytics</Copyright>
+	  <PackageProjectUrl>https://github.com/leaderanalytics/MessageBox.Blazor</PackageProjectUrl>
+	  <PackageIcon>icon.png</PackageIcon>
+	  <RepositoryUrl>https://github.com/leaderanalytics/MessageBox.Blazor</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>Leader Analytics dialog box Blazor</PackageTags>
+	  <PackageReleaseNotes>See Repository</PackageReleaseNotes>
+	  <PackageId>LeaderAnalytics.MessageBox.Blazor</PackageId>
+	  <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+	  <PackageOutputPath>C:\\NugetPackages</PackageOutputPath>
   </PropertyGroup>
-
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -20,4 +36,9 @@
 		<RootNamespace>LeaderAnalytics.MessageBox.Blazor</RootNamespace>
 		<AssemblyName>LeaderAnalytics.MessageBox.Blazor</AssemblyName>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\icon.png" Pack="true" PackagePath="\" />
+		<None Include="..\LICENSE.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 </Project>
