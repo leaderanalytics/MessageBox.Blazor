@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		version.json = version.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBox.Blazor.Demo", "MessageBox.Blazor.Demo\MessageBox.Blazor.Demo.csproj", "{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
