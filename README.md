@@ -5,6 +5,8 @@
 *An easy, simple dialog box for Blazor.*
 
 
+![Demo](./screencap.png)
+
 ## Getting Started
 
 ### Install MudBlazor
