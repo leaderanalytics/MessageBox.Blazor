@@ -5,7 +5,7 @@
 *An easy, simple dialog box for Blazor.*
 
 
-![Demo](./screencap.png)
+![Demo](./screencap1.png)
 
 ## Getting Started
 
