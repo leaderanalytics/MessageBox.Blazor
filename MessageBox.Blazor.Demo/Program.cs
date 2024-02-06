@@ -12,7 +12,10 @@ public class Program
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
 
-        builder.Services.AddMudServices()
+
+        builder.Services.AddMessageBoxBlazor();
+        builder.Services.AddMudServices();
+        
 
         var app = builder.Build();
 

@@ -1,14 +1,70 @@
 ﻿@page "/"
-
+@inherits BasePage
 <PageTitle>MessageBox.Blazor</PageTitle>
 
 <h1>MessageBox.Blazor Demo</h1>
 
-<MudButton onclick="InfoButton_Click">Information</MudButton>
 
+<MudPaper Class="d-flex mt-5 p-5" Elevation="2"  >
+    <MudContainer Class="d-flex gap-4 flex-grow-1" Style="flex-wrap:wrap;">
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="InfoButton_Click">Information</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="WarningButton_Click">Warning</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="ErrorButton_Click">Error</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="LoadingButton_Click">Wait</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="AskButton_Click">Ask</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="ConfirmButton_Click">Confirm</MudButton>
+        <MudButton Variant="Variant.Filled" Style="width:150px;" OnClick="CustomButton_Click">Custom Ask</MudButton>
+    </MudContainer>
+</MudPaper>
 @code
 {
-    private async Task InfoButton_Click()
-    { 
+    private async Task InfoButton_Click() => await MessageBox.Info("The file was uploaded successfully.");
+
+    private async Task WarningButton_Click() => await MessageBox.Warn("This task takes several minutes to run.");
+
+    private async Task ErrorButton_Click() => await MessageBox.Error("User ID is required.");
+
+    private async Task LoadingButton_Click()
+    {
+        try
+        {
+            await MessageBox.ShowLoading();
+            await LongRunningTask();
+        }
+        finally
+        {
+            await MessageBox.HideLoading();    
+        }
+
+    }
+
+    private async Task AskButton_Click() 
+    {
+        if (await MessageBox.Ask("Save your changes?"))
+            Snackbar.Add("Changes saved successfully.", Severity.Success);
+        else
+            Snackbar.Add("Changes were discarded.", Severity.Info);
+    }
+
+    private async Task ConfirmButton_Click() => await MessageBox.Confirm($"This record will be deleted permanantly.{Environment.NewLine}Are sure you want to continue?");
+
+    private async Task CustomButton_Click() => await MessageBox.Ask("Do you want to place a Market or Limit order?", "Market", "Limit");
+
+    private async Task LongRunningTask()
+    {
+        // ShowLoading / HideLoading support reentrancy. 
+        // Only the first call to ShowLoading and the last call to HideLoading
+        // have any effect.
+
+        try
+        {
+            await MessageBox.ShowLoading();
+            await Task.Delay(5000);
+        }
+        finally
+        {
+            await MessageBox.HideLoading();
+        }
     }
 }
+ 

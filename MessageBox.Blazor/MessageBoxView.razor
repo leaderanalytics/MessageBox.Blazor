@@ -6,7 +6,7 @@
             @if (MessageType == MessageType.Info)
             {
                 <MudIcon Icon="@Icons.Material.Filled.Info" Size="Size.Medium"></MudIcon>
-                <MudText Typo="Typo.h5">Information</MudText>
+                <MudText Typo="Typo.h5">Info</MudText>
             }
             else if (MessageType == MessageType.Warning)
             {
@@ -33,7 +33,7 @@
     <DialogContent>
         @if (MessageType == MessageType.Loading)
         {
-            <img src="wait.gif" style="height:30px;width:30px;margin-right:15px;" /> <span>Working....</span>
+            <img src="_content/LeaderAnalytics.MessageBox.Blazor/wait.gif" style="height:30px;width:30px;margin-right:15px;" /> <span>@MessageVisuals.Message</span>
         }
         else
         {

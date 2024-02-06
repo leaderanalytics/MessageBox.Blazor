@@ -1,7 +1,7 @@
 ﻿@code {
 
-    private MessageService _messageService;
-    [Inject] MessageService MessageService
+    private IMessageBox _messageService;
+    [Inject] IMessageBox MessageService
     {
         get => _messageService;
         set
@@ -34,12 +34,12 @@
                 LoadingCount++;
 
                 if (dialogRef == null)
-                    dialogRef = DialogService.Show<MessageBox>("", parms, options);
+                    dialogRef = DialogService.Show<MessageBoxView>(String.Empty, parms, options);
             }
             else
             {
 
-                DialogResult dialogResult = await DialogService.Show<MessageBox>("", parms, options).Result;
+                DialogResult dialogResult = await DialogService.Show<MessageBoxView>(string.Empty, parms, options).Result;
                 result = !dialogResult.Cancelled;
             }
         }

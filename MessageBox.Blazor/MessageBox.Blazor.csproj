@@ -41,4 +41,10 @@
 		<None Include="..\icon.png" Pack="true" PackagePath="\" />
 		<None Include="..\LICENSE.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\wait.gif">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 </Project>

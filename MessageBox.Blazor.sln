@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBox.Blazor", "MessageBox.Blazor\MessageBox.Blazor.csproj", "{FD90AE9F-63FC-492D-AF47-87D520B4117C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{499554E4-8406-4B6C-8312-540B00B231D4}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
@@ -12,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		version.json = version.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBox.Blazor.Demo", "MessageBox.Blazor.Demo\MessageBox.Blazor.Demo.csproj", "{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBox.Blazor.Demo", "MessageBox.Blazor.Demo\MessageBox.Blazor.Demo.csproj", "{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBox.Blazor", "MessageBox.Blazor\MessageBox.Blazor.csproj", "{BFBF85F6-1CD6-4B65-A713-61E42549701F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,14 +20,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD90AE9F-63FC-492D-AF47-87D520B4117C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA985CF0-AA2B-476A-83AA-63F73DEC5BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBF85F6-1CD6-4B65-A713-61E42549701F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBF85F6-1CD6-4B65-A713-61E42549701F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBF85F6-1CD6-4B65-A713-61E42549701F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBF85F6-1CD6-4B65-A713-61E42549701F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

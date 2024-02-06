@@ -11,7 +11,7 @@ public static class ExtensionMethods
 
     public static IServiceCollection AddMessageBoxBlazor(this IServiceCollection services)
     {
-        services.AddSingleton<MessageService>();
+        services.AddScoped<IMessageBox, MessageBox>();
         return services;
     }
 }
